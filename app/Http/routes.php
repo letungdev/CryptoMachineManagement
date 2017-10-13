@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::auth();
+
+Route::get('/', 'HomeController@index');
+Route::get('/dashboard', 'HomeController@index');
+Route::get('/machines', 'UserController@machines');
+Route::get('/machine/add', 'UserController@addMachine');
+Route::post('/machine/add', 'UserController@storeMachine');
